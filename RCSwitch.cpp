@@ -87,6 +87,8 @@ void RCSwitch::disableTransmit() {
  * Enable receiving data
  */
 void RCSwitch::enableReceive(int interrupt) {
+  gpio_init(interrupt);
+  gpio_set_dir(interrupt, GPIO_IN);
   this->nReceiverInterrupt = interrupt;
   this->enableReceive();
 }
